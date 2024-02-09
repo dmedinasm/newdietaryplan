@@ -2,7 +2,9 @@ import React from 'react'
 
 const Contact = () => {
   return (
-    <div>Contact</div>
+    <section className="h-[80vh]">
+      Contact
+    </section>
   )
 }
 

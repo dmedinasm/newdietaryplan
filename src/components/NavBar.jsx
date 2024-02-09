@@ -1,11 +1,15 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import logo from './../assets/logoredmini.png'
 const NavBar = () => {
+  const nav = useNavigate()
+  const navigator = () => {
+    nav ("/")
+  }
   return (
     <nav className="flex items-center justify-between py-2 px-10">
         <div>
-              <div className="flex items-center justify-center gap-2">
+              <div className="flex items-center justify-center gap-2 cursor-pointer" onClick={navigator}>
                   <img src={logo} alt="logo main" />
                   <div className="flex flex-col items-center">
                       <h1 className="font-dancing font-semibold text-primary text-[48px]">Dietary Planner</h1>
