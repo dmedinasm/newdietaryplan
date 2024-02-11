@@ -96,15 +96,15 @@ console.log(allergiesCare)
   return (
     <>
       <form onSubmit={handleSubmit} className="flex flex-col items-center justify-center gap-8 py-8 ">
-        <h5 className="font-poppins font-bold text-[lg] text-primary">PERSONAL INFORMATION FOR DIETARY PLAN</h5>
+        <h5 className="font-poppins font-semibold text-xl text-primary">PERSONAL INFORMATION FOR DIETARY PLAN</h5>
         <div className="flex items-center justify-center gap-4">
           <div className="flex items-center justify-center gap-2">
             <label htmlFor="weight" className="font-poppins font-bold">weigth(kg):</label>
-            <input type="number" id="weight" onChange={(e) => setPeso(e.target.value)} required className="border border-primary outline-none focus:shadow-primary focus:shadow-sm rounded"></input>
+            <input type="number" id="weight" onChange={(e) => setPeso(e.target.value)} required className="border border-primary outline-none focus:shadow-primary font-poppins text-center w-[100px] focus:shadow-sm rounded"></input>
           </div>
           <div className="flex items-center justify-center gap-2">
             <label htmlFor="height" className="font-poppins font-bold">height(cm):</label>
-            <input type="number" id="height" onChange={(e) => setAltura(e.target.value)} required className="border border-primary outline-none focus:shadow-primary focus:shadow-sm rounded"></input>
+            <input type="number" id="height" onChange={(e) => setAltura(e.target.value)} required className="border border-primary outline-none focus:shadow-primary font-poppins w-[100px] text-center focus:shadow-sm rounded"></input>
           </div>
         </div>
         <div className="flex items-start justify-center gap-12">
@@ -114,7 +114,7 @@ console.log(allergiesCare)
               dietType.map(value =>
                 <div key={value.id} className="flex items-center justify-between w-[200px] mt-2" >
                   <label htmlFor={value.id} className="font-poppins font-semibold" >{value.name}</label>
-                  <input type="checkbox" id={value.id} onChange={handleChangeDiet} />
+                  <input type="checkbox" id={value.id} onChange={handleChangeDiet} className="outline-none" />
                 </div>)
             }
           </div>

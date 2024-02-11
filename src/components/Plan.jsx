@@ -22,8 +22,9 @@ const Plan = () => {
 
   return (
     <>  
-        {loading ?
-           <div className="loader">
+    <section className=" flex items-center justify-center py-8">
+    {loading ?
+           <div className="h-[80vh] flex items-center justify-center" >
            <Grid
              visible={true}
              height="80"
@@ -46,8 +47,8 @@ const Plan = () => {
           </div>
          :
         <div>
-          <h1 className="titlePlan">7 days diet plan</h1>
-          <div className="containerPlan">
+          <h1 className="font-poppins  text-primary text-[64px] text-center">7 days diet plan</h1>
+          <div className="flex flex-col items-center justify-center">
 
             {
               days.map((valor, index) => 
@@ -55,11 +56,12 @@ const Plan = () => {
               )
             }
           </div>
-          <div className="btNewPlan">
-            <button onClick={() => navigation("/")} >Get New Diet Plan!</button>
-          </div>
-                
+          <div className="flex items-center justify-center mt-6">
+          <button onClick={() => navigation("/entry")} className="bg-primary font-poppins text-[#FFF]  py-2 px-8 rounded-md " >Get New Diet Plan!</button> 
+          </div>    
         </div>}
+    </section>
+        
 
     </>
   )

@@ -7,7 +7,7 @@ const NavBar = () => {
     nav ("/")
   }
   return (
-    <nav className="flex items-center justify-between py-2 px-10">
+    <nav className="flex items-center justify-between py-2 px-10 ">
         <div>
               <div className="flex items-center justify-center gap-2 cursor-pointer" onClick={navigator}>
                   <img src={logo} alt="logo main" />
