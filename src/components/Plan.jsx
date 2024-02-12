@@ -15,16 +15,15 @@ const Plan = () => {
  
   //Array de promesas para que lleguen en orden
   useEffect(() => {
-    if (!mealsId) return
     Promise.all(mealsId.map(getMealsData))
       .then(dataArray => setMealsRendered(dataArray));
-  }, [mealsId]);
+  }, []);
 
   return (
     <>  
-    <section className=" flex items-center justify-center py-8">
+    <section className=" flex items-center justify-center py-8 ">
     {loading ?
-           <div className="h-[80vh] flex items-center justify-center" >
+           <div className="flex items-center justify-center h-[80vh]" >
            <Grid
              visible={true}
              height="80"
@@ -39,10 +38,10 @@ const Plan = () => {
          :
          mealsRendered.length < 21 
          ?
-          <div className="invalidPlan">
-            <div className="containerMessage">
-              <p>The 7-day diet plan could not be prepared. Please enter another set of values</p>
-              <button onClick={() => navigation("/")}>Accept</button>
+          <div className="h-[80vh] flex items-center justify-center">
+            <div className="bg-primary py-5 px-12 flex flex-col items-center justify-center rounded-lg gap-4" >
+              <p className="font-poppins font-semibold text-[#FFF]">The 7-day diet plan could not be prepared. Please enter another set of values</p>
+              <button onClick={() => navigation("/entry")} className="font-poppins font-semibold bg-[#FFF] text-primary py-2 px-8 rounded">Accept</button>
             </div>
           </div>
          :
