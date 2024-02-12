@@ -22,7 +22,7 @@ const Footer = () => {
       <a href="https://github.com/dmedinasm" target='_blank'><BsGithub /></a>
      </div>
     </div>
-      <div className="pl-[128px]">
+      <div className="pl-[119px]">
         <img src={logoFooter} alt="logo footer" className="w-[45px] cursor-pointer" onClick={navigation}/>
       </div>
     <p className="font-poppins text-[#FFF] text-[0.8rem]">© Developed by dmedinadev</p>
