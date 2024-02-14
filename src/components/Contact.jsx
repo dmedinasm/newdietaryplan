@@ -14,11 +14,15 @@ const Contact = () => {
             text: "Message succesfully sended",
             className: "info",
             position: "center",
+            gravity: "top",
             style: {
-               position: 'absolute',
-               top: '40%',
-                background: "#FB6356",
-                color: "white",
+              fontFamily:"Poppins",
+              position: "absolute",
+              left: "40%",
+              padding: "10px 20px",
+              borderRadius: "10px",
+              background: "#FB6356",
+              color: "white",
             }
         }).showToast();
       }, (error) => {
@@ -28,6 +32,11 @@ const Contact = () => {
             className: "info",
             position: "center",
             style: {
+              fontFamily:"Poppins",
+              position: "absolute",
+              left: "40%",
+              padding: "10px 20px",
+              borderRadius: "10px",
                 background: "#FB6356",
                 color: "white",
             }
