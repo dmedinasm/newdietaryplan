@@ -17,7 +17,7 @@ const Plan = () => {
   useEffect(() => {
     Promise.all(mealsId.map(getMealsData))
       .then(dataArray => setMealsRendered(dataArray));
-  }, []);
+  }, [mealsId]);
 
   return (
     <>  

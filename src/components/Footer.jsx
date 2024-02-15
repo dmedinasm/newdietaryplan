@@ -10,7 +10,7 @@ const Footer = () => {
     nav("/")
   }
   return (
-   <footer className="bg-[#0C0C0C] h-[10vh] flex items-center justify-between px-8 py-4">
+   <footer className="bg-[#0C0C0C] h-[20vh] lg:h-[15vh]  flex flex-col gap-4 justify-center sm:flex-row items-center sm:justify-between px-8 py-4">
     <div className="flex items-center justify-between gap-4">
      <div className="bg-[#FFF] p-2 rounded-[50%] text-primary hover:text-[#000]">
      <a href="https://twitter.com/dmedinas88" target='_blank'> <BsTwitterX /></a>
@@ -22,9 +22,7 @@ const Footer = () => {
       <a href="https://github.com/dmedinasm" target='_blank'><BsGithub /></a>
      </div>
     </div>
-      <div className="pl-[119px]">
-        <img src={logoFooter} alt="logo footer" className="w-[45px] cursor-pointer" onClick={navigation}/>
-      </div>
+    
     <p className="font-poppins text-[#FFF] text-[0.8rem]">© Developed by dmedinadev</p>
   </footer>
   )

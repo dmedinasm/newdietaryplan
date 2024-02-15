@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import './App.css'
+import React  from 'react'
 import RouterApp from './router/RouterApp'
 
 
@@ -8,9 +7,7 @@ function App() {
  
 
   return (
-    <>
     <RouterApp/>
-    </>
   )
 }
 
