@@ -8,7 +8,7 @@ const DayPlan = ({day,dataMeal}) => {
     <>
       <div className="flex flex-col items-center justify-center ">
         <div className="font-poppins font-bold mt-10 ">Day {day}</div>
-        <div className="flex items-start justify-center mt-8">
+        <div className="flex items-start justify-center mt-8 flex-wrap">
         {
           dataMeal.map((item, index) =>
             <div key={index} className="flex flex-col items-center justify-center gap-8">

@@ -38,16 +38,16 @@ const Plan = () => {
          :
          mealsRendered.length < 21 
          ?
-          <div className="h-[80vh] flex items-center justify-center">
+          <div className=" h-[80vh] flex items-center justify-center px-8 ">
             <div className="bg-primary py-5 px-12 flex flex-col items-center justify-center rounded-lg gap-4" >
-              <p className="font-poppins font-semibold text-[#FFF]">The 7-day diet plan could not be prepared. Please enter another set of values</p>
+              <p className="font-poppins font-semibold text-[#FFF] text-center">The 7-day diet plan could not be prepared. Please enter another set of values or check your internet connection.</p>
               <button onClick={() => navigation("/entry")} className="font-poppins font-semibold bg-[#FFF] text-primary py-2 px-8 rounded">Accept</button>
             </div>
           </div>
          :
         <div>
           <h1 className="font-poppins  text-primary text-[64px] text-center">7 days diet plan</h1>
-          <div className="flex flex-col items-center justify-center">
+          <div className="flex flex-col items-center justify-center ">
 
             {
               days.map((valor, index) => 
