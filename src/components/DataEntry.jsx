@@ -96,9 +96,9 @@ console.log(allergiesCare)
   return (
     <>
       <form onSubmit={handleSubmit} className="flex flex-col items-center justify-center gap-8 py-8 ">
-        <h5 className="font-poppins font-semibold text-xl text-primary">PERSONAL INFORMATION FOR DIETARY PLAN</h5>
-        <div className="flex items-center justify-center gap-4">
-          <div className="flex items-center justify-center gap-2">
+        <h5 className="font-poppins font-semibold text-xl text-center text-primary">PERSONAL INFORMATION FOR DIETARY PLAN</h5>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex  items-center justify-center gap-2">
             <label htmlFor="weight" className="font-poppins font-bold">weigth(kg):</label>
             <input type="number" id="weight" onChange={(e) => setPeso(e.target.value)} required className="border border-primary outline-none focus:shadow-primary font-poppins text-center w-[100px] focus:shadow-sm rounded"></input>
           </div>
@@ -107,7 +107,7 @@ console.log(allergiesCare)
             <input type="number" id="height" onChange={(e) => setAltura(e.target.value)} required className="border border-primary outline-none focus:shadow-primary font-poppins w-[100px] text-center focus:shadow-sm rounded"></input>
           </div>
         </div>
-        <div className="flex items-start justify-center gap-12">
+        <div className="flex flex-col mr-10 sm:mr-0 sm:flex-row items-start justify-center gap-12">
           <div className="flex flex-col  justify-center pl-[64px]  ">
             <h1 className="font-poppins font-bold text-center mb-4">Diet Type:</h1>
             {

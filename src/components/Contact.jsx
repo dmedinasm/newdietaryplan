@@ -44,18 +44,18 @@ const Contact = () => {
       });
   };
   return (
-    <section className="h-[80vh] flex items-start justify-center">
+    <section className=" flex items-start justify-center ">
       <form ref={form}  className="flex flex-col items-center py-10 gap-8" onSubmit={handleSubmit}>
         <h3 className="font-poppins text-center text-primary text-3xl">CONTACT US</h3>
-        <div className="flex items-center ">
+        <div className="flex flex-col justify-start sm:flex-row sm:items-center ">
           <label htmlFor="name" className="font-bold font-poppins w-[200px]">Name:</label>
           <input id="name" type="text" name="name" className="border border-primary rounded-md outline-none focus:shadow-sm focus:shadow-primary w-[250px]" required />
         </div>
-        <div className="flex items-center ">
+        <div className="flex flex-col sm:flex-row sm:justify-start  sm:items-center ">
           <label htmlFor="email" className="font-bold font-poppins w-[200px]">Email:</label>
           <input id="email" type="email" name="email" className="border border-primary rounded-md outline-none focus:shadow-sm focus:shadow-primary w-[250px]" required />
         </div>
-        <div className="flex items-start justify-end " >
+        <div className="flex flex-col sm:flex-row justify-start items-start sm:justify-end " >
           <label htmlFor="message" className="font-bold font-poppins w-[200px] ">Message:</label>
           <textarea id="message" type="text" name="message" className="border border-primary h-[100px] resize-none outline-none focus:shadow-sm focus:shadow-primary rounded-md w-[250px]" ></textarea>
         </div>

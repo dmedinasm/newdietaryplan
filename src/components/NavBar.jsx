@@ -24,7 +24,7 @@ const NavBar = () => {
             <div className="block lg:hidden ">
             <Hamburger toggled={isOpen} toggle={setOpen} />
             { isOpen ?
-            <ul className="font-poppins bg-[gray] text-[white] text-[12px] sm:text-[1rem] flex flex-col items-start justify-center w-[40%] gap-8 p-8  absolute right-[5%] shadow-2xl">
+            <ul className="font-poppins bg-[gray] text-[white]  flex flex-col items-start justify-center w-[90%] gap-8 p-8  absolute right-[5%] shadow-2xl">
               <li onClick={()=>setOpen(!isOpen)} className="hover:text-[lightgray]" ><NavLink to="/">Home</NavLink></li>
               <li onClick={()=>setOpen(!isOpen)} className="hover:text-[lightgray]"><NavLink to="/entry">Get a Dietary Plan!</NavLink></li>
               <li onClick={()=>setOpen(!isOpen)} className="hover:text-[lightgray]"><NavLink to="/contact">Feed Back Us!</NavLink></li>
