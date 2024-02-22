@@ -1,11 +1,6 @@
 import React  from 'react'
 import RouterApp from './router/RouterApp'
-
-
-
 function App() {
- 
-
   return (
     <RouterApp/>
   )

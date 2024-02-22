@@ -4,56 +4,44 @@ import { getDietKCal } from '../data/dietKCal'
 import {useNavigate} from 'react-router-dom'
 import { allergies } from '../data/allergies'
 import { dietType } from '../data/dietType'
-import { getPlanData } from '../fetch/PlanResult'
+import { useChecked } from '../hooks/useChecked'
 import Toastify from 'toastify-js'
+import { useDietPlan } from '../hooks/useDietPlan'
+import { IMCResult } from '../data/getBMIResult'
 const DataEntry = () => {
 const[peso, setPeso] = useState(0)
 const[altura, setAltura] = useState(0)
+const IMC = IMCResult({altura, peso})
 const {setMealsID} =  useContext(Context)
 const [checkedIDDiet, setCheckedIDDiet] = useState([])
 const [checkedIDAllergies, setCheckedIDAllergies] = useState([])
-const[dietHealth, setDietHealth] = useState()
-const[allergiesCare, setAllergiesCare] = useState([])
+const dietHealth = useChecked({checkedType:checkedIDDiet,checkedList:dietType})
+const allergiesCare = useChecked({checkedType:checkedIDAllergies,checkedList:allergies})
+const {planResult} = useDietPlan({updateMealsID:setMealsID})
 const navigate = useNavigate()
-
-const planResult = async (params) => {
-  try {
-      const data = await getPlanData(
-        params.kcMin,
-        params.kcMax,
-        params.kMinBr,
-        params.kMaxBr,
-        params.kcMinLunch,
-        params.kcMaxLunch,
-        params.kcMinDin,
-        params.kcMaxDin,
-        params.diet,
-        params.allergy)
-    setMealsID(data.flat());
-  } catch (error) {
-    console.error('Error fetching data:', error);
-  }
-};
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (/^[0-9]*$/.test(peso) && /^[0-9]*$/.test(altura)) {
-      const IMC = (peso) / (altura / 100) ** 2
-      const params = getDietKCal({IMC,dietHealth,allergiesCare})
-      navigate("/plan")
-      planResult(params)
-    } else {
+    if(!IMC ) {
       Toastify({
-        text: "Invalid value, enter values ​​between 0 and 9",
+        text: "Invalid value,enter numbers between 0 and 9",
         className: "info",
         position: "center",
         style: {
-          background: "#FB6356",
-          color: "white",
+          fontFamily:"Poppins",
+          position: "absolute",
+          left: "38%",
+          padding: "10px 20px",
+          borderRadius: "10px",
+            background: "#FB6356",
+            color: "white",
         }
       }).showToast();
+    }else{
+      const params = getDietKCal({IMC,dietHealth,allergiesCare})
+      navigate("/plan")
+      planResult(params)
     }
-
   }
   
  const handleChangeDiet =  (e) =>{
@@ -71,23 +59,6 @@ const planResult = async (params) => {
     setCheckedIDAllergies(checkedIDAllergies.filter(id => id != e.target.id))
   }
  }
-
-  useEffect(() => {
-    if (!checkedIDDiet) return
-    const diet = checkedIDDiet.map(val =>
-      dietType.find(payload => payload.id === val)
-    ).map(res => res.data)
-   setDietHealth(diet)
-  }, [checkedIDDiet])
-
-  useEffect(() =>{
-    if (!checkedIDAllergies) return
-    const allergy = checkedIDAllergies.map(val =>
-      allergies.find(payload => payload.id === val)
-      ).map(resp => resp.data).flat()
-      setAllergiesCare(allergy)
-  },[checkedIDAllergies])
-
 console.log(checkedIDDiet)
 console.log(checkedIDAllergies)
 console.log(dietHealth)
