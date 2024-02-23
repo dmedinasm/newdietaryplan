@@ -7,11 +7,11 @@ import { dietType } from '../data/dietType'
 import { useChecked } from '../hooks/useChecked'
 import Toastify from 'toastify-js'
 import { useDietPlan } from '../hooks/useDietPlan'
-import { IMCResult } from '../data/getBMIResult'
+import { useBMI } from '../hooks/useBMI'
 const DataEntry = () => {
 const[peso, setPeso] = useState(0)
 const[altura, setAltura] = useState(0)
-const IMC = IMCResult({altura, peso})
+const IMC = useBMI({peso, altura})
 const {setMealsID} =  useContext(Context)
 const [checkedIDDiet, setCheckedIDDiet] = useState([])
 const [checkedIDAllergies, setCheckedIDAllergies] = useState([])

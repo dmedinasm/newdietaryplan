@@ -1,11 +1,14 @@
+const DIETPLAN_API = 'https://api.edamam.com/api/meal-planner/v1/9d99e507/select'
+
+const API_KEY = 'Basic OWQ5OWU1MDc6IDg1MGE3YmVjYTE4ZGFjNmNiMGMyMThiMDcwNzAzZDg0'
 export const getPlanData = async (calMin, calMax, calMinBreakfast, calMaxBreakfast, calMinLunch, calMaxLunch, calMinDinner, calMaxDinner, dietH, allergyC) => {
     try {
-      const response = await fetch('https://api.edamam.com/api/meal-planner/v1/9d99e507/select', {
+      const response = await fetch(DIETPLAN_API, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
           'Edamam-Account-User': 'dmedinas',
-          'Authorization': 'Basic OWQ5OWU1MDc6IDg1MGE3YmVjYTE4ZGFjNmNiMGMyMThiMDcwNzAzZDg0',
+          'Authorization': API_KEY,
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({

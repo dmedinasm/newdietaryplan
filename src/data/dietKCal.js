@@ -1,5 +1,5 @@
 export const getDietKCal = ({imc,dietHealth,allergiesCare}) =>{
-    let params = {}
+  let params = {}
     if (imc < 18.5) {
       params = {kcMin: 1600, kcMax: 2000, kMinBr: 160, kMaxBr: 600, kcMinLunch: 480, 
       kcMaxLunch: 900, kcMinDin: 320, kcMaxDin: 900, diet: dietHealth, allergy: allergiesCare}
