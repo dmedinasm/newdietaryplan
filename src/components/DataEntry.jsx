@@ -1,28 +1,27 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Context } from '../context/Context'
-import { getDietKCal } from '../data/dietKCal'
 import {useNavigate} from 'react-router-dom'
 import { allergies } from '../data/allergies'
 import { dietType } from '../data/dietType'
 import { useChecked } from '../hooks/useChecked'
 import Toastify from 'toastify-js'
 import { useDietPlan } from '../hooks/useDietPlan'
-import { useBMI } from '../hooks/useBMI'
+import { useDietParams } from '../hooks/useDietParams'
 const DataEntry = () => {
-const[peso, setPeso] = useState(0)
-const[altura, setAltura] = useState(0)
-const IMC = useBMI({peso, altura})
+const[minCalories, setMinCalories] = useState(null)
+const[maxCalories, setMaxCalories] = useState(null)
 const {setMealsID} =  useContext(Context)
 const [checkedIDDiet, setCheckedIDDiet] = useState([])
 const [checkedIDAllergies, setCheckedIDAllergies] = useState([])
 const dietHealth = useChecked({checkedType:checkedIDDiet,checkedList:dietType})
 const allergiesCare = useChecked({checkedType:checkedIDAllergies,checkedList:allergies})
+const params = useDietParams({minCalories, maxCalories,dietHealth,allergiesCare})
 const {planResult} = useDietPlan({updateMealsID:setMealsID})
 const navigate = useNavigate()
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if(!IMC ) {
+    /*if(!IMC ) {
       Toastify({
         text: "Invalid value,enter numbers between 0 and 9",
         className: "info",
@@ -36,12 +35,10 @@ const navigate = useNavigate()
             background: "#FB6356",
             color: "white",
         }
-      }).showToast();
-    }else{
-      const params = getDietKCal({IMC,dietHealth,allergiesCare})
-      navigate("/plan")
-      planResult(params)
-    }
+      }).showToast();*/
+    if(!params) return
+    planResult(params)
+    navigate("/plan")
   }
   
  const handleChangeDiet =  (e) =>{
@@ -67,15 +64,15 @@ console.log(allergiesCare)
   return (
     <>
       <form onSubmit={handleSubmit} className="flex flex-col items-center justify-center gap-8 py-8 ">
-        <h5 className="font-poppins font-semibold text-xl text-center text-primary">PERSONAL INFORMATION FOR DIETARY PLAN</h5>
+        <h5 className="font-poppins font-semibold text-xl text-center text-primary">DIET PLAN SPECIFICATIONS</h5>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <div className="flex  items-center justify-center gap-2">
-            <label htmlFor="weight" className="font-poppins font-bold">weigth(kg):</label>
-            <input type="number" id="weight" onChange={(e) => setPeso(e.target.value)} required className="border border-primary outline-none focus:shadow-primary font-poppins text-center w-[100px] focus:shadow-sm rounded"></input>
+            <label htmlFor="weight" className="font-poppins font-bold">min(kcal):</label>
+            <input type="number" id="weight" onChange={(e) => setMinCalories(e.target.value)} required className="border border-primary outline-none focus:shadow-primary font-poppins text-center w-[100px] focus:shadow-sm rounded"></input>
           </div>
           <div className="flex items-center justify-center gap-2">
-            <label htmlFor="height" className="font-poppins font-bold">height(cm):</label>
-            <input type="number" id="height" onChange={(e) => setAltura(e.target.value)} required className="border border-primary outline-none focus:shadow-primary font-poppins w-[100px] text-center focus:shadow-sm rounded"></input>
+            <label htmlFor="height" className="font-poppins font-bold">max(kcal):</label>
+            <input type="number" id="height" onChange={(e) => setMaxCalories(e.target.value)} required className="border border-primary outline-none focus:shadow-primary font-poppins w-[100px] text-center focus:shadow-sm rounded"></input>
           </div>
         </div>
         <div className="flex flex-col mr-10 sm:mr-0 sm:flex-row items-start justify-center gap-12">
