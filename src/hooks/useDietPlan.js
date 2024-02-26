@@ -1,7 +1,7 @@
 import { getPlanData } from "../fetch/PlanResult";
 
 
-export function useDietPlan ({updateMealsID}) {
+export function useDietPlan (updateMealsID) {
     const planResult = async (params) => {
         try {
             const data = await getPlanData(

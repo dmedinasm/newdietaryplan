@@ -13,17 +13,18 @@ const[maxCalories, setMaxCalories] = useState(null)
 const {setMealsID} =  useContext(Context)
 const [checkedIDDiet, setCheckedIDDiet] = useState([])
 const [checkedIDAllergies, setCheckedIDAllergies] = useState([])
-const dietHealth = useChecked({checkedType:checkedIDDiet,checkedList:dietType})
+const dietHealth = useChecked({checkedType:checkedIDDiet, checkedList:dietType})
 const allergiesCare = useChecked({checkedType:checkedIDAllergies,checkedList:allergies})
-const params = useDietParams({minCalories, maxCalories,dietHealth,allergiesCare})
-const {planResult} = useDietPlan({updateMealsID:setMealsID})
+const {params,error} = useDietParams({minCalories, maxCalories,dietHealth,allergiesCare})
+const {planResult} = useDietPlan(setMealsID)
 const navigate = useNavigate()
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    /*if(!IMC ) {
+   
+    if(error) {
       Toastify({
-        text: "Invalid value,enter numbers between 0 and 9",
+        text: `${error}`,
         className: "info",
         position: "center",
         style: {
@@ -35,10 +36,12 @@ const navigate = useNavigate()
             background: "#FB6356",
             color: "white",
         }
-      }).showToast();*/
+      }).showToast();
+    } else{
     if(!params) return
     planResult(params)
     navigate("/plan")
+    }
   }
   
  const handleChangeDiet =  (e) =>{
@@ -67,12 +70,12 @@ console.log(allergiesCare)
         <h5 className="font-poppins font-semibold text-xl text-center text-primary">DIET PLAN SPECIFICATIONS</h5>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <div className="flex  items-center justify-center gap-2">
-            <label htmlFor="weight" className="font-poppins font-bold">min(kcal):</label>
-            <input type="number" id="weight" onChange={(e) => setMinCalories(e.target.value)} required className="border border-primary outline-none focus:shadow-primary font-poppins text-center w-[100px] focus:shadow-sm rounded"></input>
+            <label htmlFor="minCalories" className="font-poppins font-bold">min(kcal):</label>
+            <input type="number" id="minCalories" onChange={(e) => setMinCalories(e.target.value)}  required className="border border-primary outline-none focus:shadow-primary font-poppins text-center w-[100px] focus:shadow-sm rounded"></input>
           </div>
           <div className="flex items-center justify-center gap-2">
-            <label htmlFor="height" className="font-poppins font-bold">max(kcal):</label>
-            <input type="number" id="height" onChange={(e) => setMaxCalories(e.target.value)} required className="border border-primary outline-none focus:shadow-primary font-poppins w-[100px] text-center focus:shadow-sm rounded"></input>
+            <label htmlFor="maxCalories" className="font-poppins font-bold">max(kcal):</label>
+            <input type="number" id="maxCalories" onChange={(e) => setMaxCalories(e.target.value)}  required className="border border-primary outline-none focus:shadow-primary font-poppins w-[100px] text-center focus:shadow-sm rounded"></input>
           </div>
         </div>
         <div className="flex flex-col mr-10 sm:mr-0 sm:flex-row items-start justify-center gap-12">
