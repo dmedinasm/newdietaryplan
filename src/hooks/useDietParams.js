@@ -10,12 +10,12 @@ export function useDietParams ({minCalories,maxCalories,dietHealth,allergiesCare
       return
     }
     if(!(/^(1[4-9][0-9]{2}|2[0-9]{3}|3000)$/.test(maxCalories))){
-      setError("Invalid value, Max values must be between 1400 and 3000 kcal")
+      setError("Invalid value,Max values must be between 1400 and 3000 kcal")
       return
     }
     
     if(minCalories > maxCalories){
-      setError("Max values must be greater than Min values")
+      setError("Invaild value,Max values must be greater than Min values")
       return
     }
 

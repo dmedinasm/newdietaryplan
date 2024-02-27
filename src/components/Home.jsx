@@ -8,7 +8,7 @@ const Home = () => {
   }
   return (
     <section className="flex flex-col md:flex-row   items-center justify-center bg-bgHome bg-cover  shadow-primary gap-8 py-10 px-4 ">
-      <div className="flex flex-col items-center order-2 md:order-1 gap-10 ">
+      <div className="flex flex-col items-center  gap-10 ">
         <h1 className="font-dancing font-semibold text-[#FFFF] text-[40px] lg:text-[48px] text-center ">Dietary Planner Tool</h1>
         <div className="flex flex-col items-start justify-start gap-10">
           <p className="font-poppins font-semibold text-[#FFFF] text-center md:text-start text-sm lg:text-xl p-2">- Get a 7-day diet plan tailored to your specifications.</p>
@@ -17,7 +17,7 @@ const Home = () => {
         </div>
         <button className="bg-[#FFFF] font-poppins py-4 px-6 lg:py-5 lg:px-8 text-primary rounded-[32px] font-bold mt-4" onClick={navigate}>GET A DIETARY PLAN!</button>
       </div>
-      <img src={homeImg} alt="home's img" className="w-[60%] sm:w-[50%] md:w-[40%] order-1 md:order-2 rounded-lg shadow-2xl " />
+      <img src={homeImg} alt="home's img" className="w-[60%] sm:w-[50%] md:w-[40%]  rounded-lg shadow-2xl mt-7 md:mt-0" />
     </section>
   )
 }
