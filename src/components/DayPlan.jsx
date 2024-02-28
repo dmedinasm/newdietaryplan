@@ -35,7 +35,6 @@ const DayPlan = ({day,dataMeal}) => {
               <Meal
                 title={item.recipe.label}
                 image={item.recipe.images.SMALL.url}
-                kcal={Math.floor(item.recipe.totalNutrients.ENERC_KCAL.quantity)}
                 carb={Math.floor(item.recipe.totalNutrients.CHOCDF.quantity)}
                 fat={Math.floor(item.recipe.totalNutrients.FAT.quantity)}
                 protein={Math.floor(item.recipe.totalNutrients.PROCNT.quantity)}

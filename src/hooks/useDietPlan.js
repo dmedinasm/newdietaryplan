@@ -1,7 +1,7 @@
 import { getPlanData } from "../fetch/PlanResult";
 
 
-export function useDietPlan (updateMealsID) {
+export function useDietPlan ({updateMealsID}) {
     const planResult = async (params) => {
         try {
             const data = await getPlanData(
@@ -15,7 +15,8 @@ export function useDietPlan (updateMealsID) {
               params.kcMaxDin,
               params.diet,
               params.allergy)
-          updateMealsID(data.flat());
+             
+          updateMealsID(data);
         } catch (error) {
           console.error('Error fetching data:', error);
         }

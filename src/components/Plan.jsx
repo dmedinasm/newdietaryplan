@@ -18,7 +18,7 @@ const Plan = () => {
     <section className=" flex items-center justify-center py-8 ">
     {loading ?
            <div className="flex flex-col items-center justify-center h-[80vh] gap-8" >
-            <p className="font-poppins font-bold text-[1.5rem] text-primary ">Loading Plan...</p>
+            <p className="font-poppins font-bold text-[1.5rem] text-primary ">Loading...</p>
            <Grid
              visible={true}
              height="80"

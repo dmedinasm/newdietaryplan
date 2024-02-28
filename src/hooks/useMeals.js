@@ -8,6 +8,6 @@ export function useMeals ({meals}) {
           .then(dataArray => setMealsRendered(dataArray));
       }, [meals]);
       
-
+      console.log(mealsRendered)
       return mealsRendered
 }

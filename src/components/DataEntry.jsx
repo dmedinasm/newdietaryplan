@@ -16,7 +16,7 @@ const [checkedIDAllergies, setCheckedIDAllergies] = useState([])
 const dietHealth = useChecked({checkedType:checkedIDDiet, checkedList:dietType})
 const allergiesCare = useChecked({checkedType:checkedIDAllergies,checkedList:allergies})
 const {params,error} = useDietParams({minCalories, maxCalories,dietHealth,allergiesCare})
-const {planResult} = useDietPlan(setMealsID)
+const {planResult} = useDietPlan({updateMealsID:setMealsID})
 const navigate = useNavigate()
 
   const handleSubmit = (e) => {

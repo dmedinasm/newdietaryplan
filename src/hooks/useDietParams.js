@@ -27,13 +27,16 @@ export function useDietParams ({minCalories,maxCalories,dietHealth,allergiesCare
 
     setError(null)
 
-    const minCalBreakfastDinner = Math.floor(minCalories * 0.3)
+    //Distribution of calories in the day
+    const minCalBreakfastDinner = Math.floor(minCalories * 0.1)
     const maxCalBreakfastDinner = Math.ceil(maxCalories * 0.3)
     const minCalLunch = Math.floor(minCalories * 0.3)
-    const maxCalLunch = Math.ceil(maxCalories * 0.3)
+    const maxCalLunch = Math.ceil(maxCalories * 0.45)
+    const minCalDinner = Math.floor(maxCalories * 0.2)
+    const maxCalDinner = Math.ceil(maxCalories * 0.45)
        setParams ({kcMin: minCalories, kcMax: maxCalories, kMinBr:minCalBreakfastDinner, kMaxBr: maxCalBreakfastDinner, kcMinLunch: minCalLunch, 
-        kcMaxLunch: maxCalLunch, kcMinDin: minCalBreakfastDinner, kcMaxDin: maxCalBreakfastDinner, diet: dietHealth, allergy: allergiesCare})
-  },[minCalories, maxCalories])
-
+        kcMaxLunch: maxCalLunch, kcMinDin: minCalDinner, kcMaxDin: maxCalDinner, diet: dietHealth, allergy: allergiesCare})
+  },[minCalories, maxCalories, dietHealth, allergiesCare])
+  console.log(params)
   return {params, error}
 }
