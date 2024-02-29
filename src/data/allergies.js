@@ -1,6 +1,5 @@
 export const allergies = [
     {id:"lowSugar", data: ["LOW_SUGAR","SUGAR_CONSCIOUS","NO_SUGAR_ADDED"], name:"low-sugar"},
-    {id:"sulfiteF", data:["SULFITE_FREE"],name:"low-sulfite"},
     {id:"fMap", data:["FODMAP_FREE"],name:"FODMAP"},
     {id:"kosher", data:["KOSHER"],name:"kosher"},
     {id: "noOil", data : ["NO_OIL_ADDED"],name:"no-oil-added"},
@@ -11,7 +10,7 @@ export const allergies = [
     {id:"tNutFree", data:["TREE_NUT_FREE"],name:"tree-nut-free"},
     {id:"soyFree", data:["SOY_FREE"],name:"soy-free"},
     {id:"fishFree", data:["FISH_FREE"],name:"fish-free"},
-    {id:"seaFree", data:["SELLFISH_FREE","CRUSTACEAN_FREE","MOLLUSK_FREE"],name:"seafood-free"},
+    {id:"seaFree", data:["SHELLFISH_FREE","CRUSTACEAN_FREE","MOLLUSK_FREE"],name:"seafood-free"},
     {id:"celeryFree", data:["CELERY_FREE"],name:"celery-free"},
     {id:"mustardFree", data:["MUSTARD_FREE"],name:"mustard-free"},
     {id:"sesameFree", data:["SESAME_FREE"],name:"sesame-free"},

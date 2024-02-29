@@ -91,7 +91,7 @@ console.log(allergiesCare)
           </div>
         </div>
 
-        <input type="submit" value="Submit" className="bg-primary font-poppins cursor-pointer py-2 px-8 text-[#FFF] rounded" />
+        <input type="submit" value="Submit" className="bg-primary font-poppins cursor-pointer py-2 px-8 text-[#FFF] rounded-md" />
       </form>
     </>
   )

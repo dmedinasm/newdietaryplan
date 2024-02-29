@@ -51,7 +51,7 @@ const Plan = () => {
             }
           </div>
           <div className="flex items-center justify-center mt-6">
-          <button onClick={() => navigation("/entry")} className="bg-primary font-poppins text-[#FFF]  py-4 px-8 rounded-md " >Get New Diet Plan!</button> 
+          <button onClick={() => navigation("/entry")} className="bg-primary font-poppins text-[#FFF]  py-3 px-8 rounded-md " >Get New Diet Plan!</button> 
           </div>    
         </div>}
     </section>
