@@ -3,7 +3,7 @@ import Meal from './Meal'
 import breakfastImg from '../assets/tab-icon-01.png'
 import lunchImg from '../assets/tab-icon-02.png'
 import dinnerImg from '../assets/tab-icon-03.png'
-const DayPlan = ({day,dataMeal}) => {
+const DayPlan = ({ day, dataMeal }) => {
   return (
     <>
       <div className="flex flex-col items-center justify-center ">
@@ -15,18 +15,17 @@ const DayPlan = ({day,dataMeal}) => {
 
               {
                 index === 0
-                  ?
-                  <div>
+                  ? <div>
                     <div className="font-poppins font-bold">Breakfast</div>
                     <div className="pt-2"><img src={breakfastImg} alt="iconBr" /></div>
                   </div>
-                  : index === 1 ?
-                    <div>
+                  : index === 1
+                    ? <div>
                      <div className=" font-poppins font-bold text-center">Lunch</div>
                        <div className="pt-2"><img src={lunchImg} alt="iconLunch" /></div>
                     </div>
-                    : index === 2 ?
-                      <div>
+                    : index === 2
+                      ? <div>
                         <div className="font-poppins font-bold text-center">Dinner</div>
                         <div className="pt-2"><img src={dinnerImg} alt="iconDinner" /></div>
                       </div>
@@ -45,7 +44,7 @@ const DayPlan = ({day,dataMeal}) => {
           )
         }
         </div>
-       
+
       </div>
     </>
   )

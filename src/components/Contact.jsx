@@ -1,51 +1,51 @@
 import React, { useRef } from 'react'
 import emailjs from '@emailjs/browser'
-import Toastify  from 'toastify-js'
+import Toastify from 'toastify-js'
 const Contact = () => {
-  const form = useRef();
+  const form = useRef()
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    emailjs.sendForm('service_3tfinni', 'template_l3humk9', form.current, {publicKey: '-4_1XVLTXkBSvoCAq'})
+    emailjs.sendForm('service_3tfinni', 'template_l3humk9', form.current, { publicKey: '-4_1XVLTXkBSvoCAq' })
       .then((result) => {
-          console.log(result.text);
-          Toastify({
-            text: "Message succesfully sended",
-            className: "info",
-            position: "center",
-            gravity: "top",
-            style: {
-              fontFamily:"Poppins",
-              position: "absolute",
-              left: "40%",
-              padding: "10px 20px",
-              borderRadius: "10px",
-              background: "#FB6356",
-              color: "white",
-            }
-        }).showToast();
+        console.log(result.text)
+        Toastify({
+          text: 'Message succesfully sended',
+          className: 'info',
+          position: 'center',
+          gravity: 'top',
+          style: {
+            fontFamily: 'Poppins',
+            position: 'absolute',
+            left: '40%',
+            padding: '10px 20px',
+            borderRadius: '10px',
+            background: '#FB6356',
+            color: 'white'
+          }
+        }).showToast()
       }, (error) => {
-          console.log(error.text);
-          Toastify({
-            text: "Error sending message, Try Again",
-            className: "info",
-            position: "center",
-            style: {
-              fontFamily:"Poppins",
-              position: "absolute",
-              left: "40%",
-              padding: "10px 20px",
-              borderRadius: "10px",
-                background: "#FB6356",
-                color: "white",
-            }
-        }).showToast();
-      });
-  };
+        console.log(error.text)
+        Toastify({
+          text: 'Error sending message, Try Again',
+          className: 'info',
+          position: 'center',
+          style: {
+            fontFamily: 'Poppins',
+            position: 'absolute',
+            left: '40%',
+            padding: '10px 20px',
+            borderRadius: '10px',
+            background: '#FB6356',
+            color: 'white'
+          }
+        }).showToast()
+      })
+  }
   return (
-    <section className=" flex items-start justify-center ">
-      <form ref={form}  className="flex flex-col items-center py-10 gap-8" onSubmit={handleSubmit}>
+    <section className=" flex items-start justify-center h-screen mt-20">
+      <form ref={form} className="flex flex-col items-center py-10 gap-8" onSubmit={handleSubmit}>
         <h3 className="font-poppins text-center text-primary text-3xl">CONTACT US</h3>
         <div className="flex flex-col justify-start sm:flex-row sm:items-center ">
           <label htmlFor="name" className="font-bold font-poppins w-[200px]">Name:</label>
@@ -62,10 +62,10 @@ const Contact = () => {
         <div className="flex items-center justify-center">
         <input type="submit" value="Submit" className="font-poppins bg-primary text-[#FFF] cursor-pointer py-2 px-8  rounded-md" />
         </div>
-       
+
       </form>
     </section>
-    
+
   )
 }
 
