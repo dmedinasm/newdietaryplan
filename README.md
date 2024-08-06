@@ -12,9 +12,8 @@ Welcome to the Weekly Diet Planner, an incredible tool for creating personalized
 ## How It Works
 
 1. **Input Your Details**: Provide information about your dietary goals, any medical conditions, and food allergies.
-2. **Specify Preferences**: Let us know about your food preferences and any specific requirements.
-3. **Generate Plan**: Our algorithm creates a personalized 7-day meal plan based on your inputs.
-4. **Access Recipes**: Browse through our extensive catalog of recipes to find detailed instructions for each meal in your plan.
+2. **Generate Plan**: Our algorithm creates a personalized 7-day meal plan based on your inputs.
+
 
 
 
